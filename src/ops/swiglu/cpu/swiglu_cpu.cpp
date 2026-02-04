@@ -8,8 +8,7 @@ template <typename T>
 void swiglu_(T *out, const T *gate, const T *up, size_t numel) {
     // SwiGLU: out[i] = up[i] * (gate[i] / (1 + e^(-gate[i])))
     // 其中 gate[i] / (1 + e^(-gate[i])) 是 Swish/SiLU 激活函数
-    // SwiGLU = Swish-Gated Linear Unit
-    
+
     for (size_t i = 0; i < numel; i++) {
         float gate_val, up_val;
         
@@ -22,7 +21,6 @@ void swiglu_(T *out, const T *gate, const T *up, size_t numel) {
         }
         
         // 计算 Swish(gate) = gate / (1 + exp(-gate))
-        // 等价于: gate * sigmoid(gate)
         float swish = gate_val / (1.0f + std::exp(-gate_val));
         
         // SwiGLU: up * swish(gate)

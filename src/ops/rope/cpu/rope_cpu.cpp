@@ -7,7 +7,6 @@
 template <typename T>
 void rope_(T *out, const T *in, const int64_t *pos_ids, float theta,
            size_t seq_len, size_t n_heads, size_t head_dim) {
-    // RoPE: Rotary Position Embedding
     // 输入形状: [seq_len, n_heads, head_dim]
     // head_dim 必须是偶数，前半部分和后半部分配对进行旋转
     

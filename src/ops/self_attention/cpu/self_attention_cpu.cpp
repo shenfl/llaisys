@@ -10,7 +10,6 @@
 template <typename T>
 void self_attention_(T *attn_val, const T *q, const T *k, const T *v, float scale,
                     size_t qlen, size_t kvlen, size_t nh, size_t nkvh, size_t hd) {
-    // Self-Attention with causal mask
     // q: [qlen, nh, hd]
     // k: [kvlen, nkvh, hd]
     // v: [kvlen, nkvh, hd]
